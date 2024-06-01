@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <LandingPage /> },
       {
-        path: "/app",
+        path: "app",
         element: <Layout />,
         children: [
           {
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "blog-view",
+            path: "blog-view/:slug",
             element: (
               <AuthLayout auth={true}>
                 <BlogView />
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "edit-blog",
+            path: "edit-blog/:slug",
             element: (
               <AuthLayout auth={true}>
                 <EditBlog />

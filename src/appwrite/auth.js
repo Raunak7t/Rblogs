@@ -22,29 +22,32 @@ export class AuthService {
         return user;
       }
     } catch (error) {
-      throw error;
+      console.log(error);
+      return false;
     }
   }
   async logIn(email, password) {
     try {
       return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
-      throw error;
+      console.log(error);
+      return false;
     }
   }
   async getCurrentUser() {
     try {
       return await this.account.get();
     } catch (error) {
-      throw error;
+      console.log(error);
+      return false;
     }
-    return null;
   }
-  async logOut(email, password) {
+  async logOut() {
     try {
       return await this.account.deleteSessions();
     } catch (error) {
-      throw error;
+      console.log(error);
+      return false;
     }
   }
 }

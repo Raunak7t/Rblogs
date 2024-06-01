@@ -1,5 +1,23 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 import AuthLayout from "./AuthLayout";
+import Loading from "./Loading";
+import PostCard from "./PostCard";
+import Button from "./Button";
+import Input from "./Input";
+import Container from "./Container";
+import Logo from "./Logo";
+import Select from "./Select";
 
-export {AuthLayout, Header, Footer}
+export {
+  AuthLayout,
+  Header,
+  Footer,
+  Loading,
+  PostCard,
+  Button,
+  Input,
+  Container,
+  Logo,
+  Select,
+};
