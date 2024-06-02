@@ -33,7 +33,7 @@ function Header() {
   ];
 
   return (
-    <header className=" bg-slate-800/50 fixed top-0 left-0 right-0 backdrop-blur">
+    <header className=" bg-slate-800/50 fixed top-0 left-0 right-0 backdrop-blur z-50">
       <Container className="py-2 flex items-center justify-between gap-8">
         <Link to="/">
           <Logo />

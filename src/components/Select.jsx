@@ -5,19 +5,18 @@ function Select({ options, label, ref, className, ...props }) {
   return (
     <div>
       {label && (
-        <label className="block text-sm my-1" htmlFor={id}>
-          {label}
-        </label>
+        <div className="py-1">
+          <label className="cursor-pointer" htmlFor={id}>
+            {label}
+          </label>
+        </div>
       )}
       <select
         id={id}
         {...props}
-        className={` bg-slate-700 py-1 px-2 rounded border w-full ${className}`}
+        className={` bg-[#222f3e] py-1 px-2 rounded border w-full ${className}`}
         ref={ref}
       >
-        <option disabled selected>
-          Select
-        </option>
         {options.map((opt) => (
           <option key="opt" value={opt}>
             {opt}

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  AddBlogForm,
   Container,
   Header,
   Input,
@@ -14,6 +15,7 @@ function LandingPage() {
       <Header />
       <div className="h-96"></div>
       <Container>
+        <AddBlogForm />
         <Logo />
         LandingPage
         <PostCard />
