@@ -7,9 +7,7 @@ function SignUp() {
     <div>
       <Title>
         Sign up to{" "}
-        <StyledText className="inline text-5xl tracking-wide ">
-          Explore
-        </StyledText>{" "}
+        <StyledText className="text-5xl tracking-wide ">Explore</StyledText>{" "}
         more
       </Title>
       <div className=" flex justify-center mt-8">

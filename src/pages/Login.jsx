@@ -1,16 +1,16 @@
 import React from "react";
 import { Button, Input, StyledText, Title } from "../components";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function LogIn() {
+  const { register, getValues, setValue, watch } = useForm();
   return (
     <div>
       <Title>
         Welcome!{" "}
-        <StyledText className="inline text-5xl tracking-wide ">
-          Log in
-        </StyledText>{" "}
-        to continue
+        <StyledText className="text-5xl tracking-wide ">Log in</StyledText> to
+        continue
       </Title>
       <div className=" flex justify-center mt-8">
         <div className=" p-px rounded-lg bg-gradient-to-br from-purple-400 via-slate-700 to-purple-400">

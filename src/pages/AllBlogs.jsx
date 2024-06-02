@@ -6,10 +6,8 @@ function AllBlogs() {
     <div>
       <Title>
         Explore all{" "}
-        <StyledText className="inline text-5xl tracking-wide ">
-          Blogs
-        </StyledText>{" "}
-        on Rblogs
+        <StyledText className="text-5xl tracking-wide ">Blogs</StyledText> on
+        Rblogs
       </Title>
     </div>
   );
