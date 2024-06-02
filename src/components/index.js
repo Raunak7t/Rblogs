@@ -9,6 +9,8 @@ import Container from "./Container";
 import Logo from "./Logo";
 import Select from "./Select";
 import AddBlogForm from "./AddBlogForm/AddBlogForm";
+import StyledText from "./StyledText";
+import Title from "./Title";
 
 export {
   AuthLayout,
@@ -22,4 +24,6 @@ export {
   Logo,
   Select,
   AddBlogForm,
+  StyledText,
+  Title,
 };
