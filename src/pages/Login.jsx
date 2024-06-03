@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 function LogIn() {
-  const { register, getValues, setValue, watch } = useForm();
+  const { register, getValues, setValue, watch, handleSubmit } = useForm();
+
+  const submit = () => {
+    console.log(getValues());
+  };
+
   return (
     <div>
       <Title>
@@ -14,9 +19,24 @@ function LogIn() {
       </Title>
       <div className=" flex justify-center mt-8">
         <div className=" p-px rounded-lg bg-gradient-to-br from-purple-400 via-slate-700 to-purple-400">
-          <form className=" rounded-lg bg-slate-900/90 px-6 py-4 w-96">
-            <Input label="E-mail:" className="mb-3" />
-            <Input label="Password:" type="password" className="mb-3" />
+          <form
+            className=" rounded-lg bg-slate-900/90 px-6 py-4 w-96"
+            onSubmit={handleSubmit(submit)}
+          >
+            <Input
+              {...register("email")}
+              required
+              label="E-mail:"
+              type="email"
+              className="mb-3"
+            />
+            <Input
+              {...register("password")}
+              required
+              label="Password:"
+              type="password"
+              className="mb-3"
+            />
             <p className="p-1 text-right">
               Don't have an Account?{" "}
               <Link
@@ -26,7 +46,9 @@ function LogIn() {
                 Sign-up
               </Link>
             </p>
-            <Button className="w-full my-3">Log-in</Button>
+            <Button className="w-full my-3" type="submit">
+              Log-in
+            </Button>
           </form>
         </div>
       </div>

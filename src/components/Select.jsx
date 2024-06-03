@@ -18,7 +18,7 @@ function Select({ options, label, className, ...props }, ref) {
         ref={ref}
       >
         {options.map((opt) => (
-          <option key="opt" value={opt}>
+          <option key={opt} value={opt}>
             {opt}
           </option>
         ))}

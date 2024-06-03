@@ -1,8 +1,15 @@
 import React from "react";
 import { Button, Input, StyledText, Title } from "../components";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function SignUp() {
+  const { register, getValues, handleSubmit } = useForm();
+
+  const submit = () => {
+    console.log(getValues());
+  };
+
   return (
     <div>
       <Title>
@@ -12,10 +19,29 @@ function SignUp() {
       </Title>
       <div className=" flex justify-center mt-8">
         <div className=" p-px rounded-lg bg-gradient-to-br from-purple-400 via-slate-700 to-purple-400">
-          <form className=" rounded-lg bg-slate-900/90 px-6 py-4 w-96">
-            <Input label="Name:" className="mb-3" />
-            <Input label="E-mail:" className="mb-3" />
-            <Input label="Password:" type="password" className="mb-3" />
+          <form
+            className=" rounded-lg bg-slate-900/90 px-6 py-4 w-96"
+            onSubmit={handleSubmit(submit)}
+          >
+            <Input
+              label="Name:"
+              className="mb-3"
+              {...register("name")}
+              required
+            />
+            <Input
+              label="E-mail:"
+              className="mb-3"
+              {...register("email")}
+              required
+            />
+            <Input
+              label="Password:"
+              type="password"
+              className="mb-3"
+              {...register("password")}
+              required
+            />
             <p className="p-1 text-right">
               Already have an Account?{" "}
               <Link
@@ -25,7 +51,9 @@ function SignUp() {
                 Log-in
               </Link>
             </p>
-            <Button className="w-full my-3">Sign-up</Button>
+            <Button type="submit" className="w-full my-3">
+              Sign-up
+            </Button>
           </form>
         </div>
       </div>
