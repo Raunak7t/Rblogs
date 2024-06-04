@@ -1,20 +1,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../features/loginFeature";
-// import authService from "../../appwrite/auth";
+import authService from "../../appwrite/auth";
 
 function Logout() {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    // authService
-    //   .logOut()
-    //   .then(() => {
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    dispatch(logout());
+    authService
+      .logOut()
+      .then(() => {
+        dispatch(logout());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

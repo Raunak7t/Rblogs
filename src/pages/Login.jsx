@@ -1,13 +1,27 @@
 import React from "react";
 import { Button, Input, StyledText, Title } from "../components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import authService from "../appwrite/auth";
+import { useDispatch } from "react-redux";
+import { login, logout } from "../features/loginFeature";
 
 function LogIn() {
-  const { register, getValues, setValue, watch, handleSubmit } = useForm();
+  const { register, getValues, handleSubmit } = useForm();
 
-  const submit = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const submit = async (data) => {
     console.log(getValues());
+    const userData = await authService.logIn(data);
+    if (userData) {
+      const uData = await authService.getCurrentUser();
+      if (uData) {
+        dispatch(login(uData));
+        navigate("/app");
+      }
+    }
   };
 
   return (
