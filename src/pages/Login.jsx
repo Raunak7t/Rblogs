@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import authService from "../appwrite/auth";
 import { useDispatch } from "react-redux";
-import { login, logout } from "../features/loginFeature";
+import { login } from "../features/loginFeature";
+import { toast } from "react-toastify";
 
 function LogIn() {
   const { register, getValues, handleSubmit } = useForm();
@@ -13,14 +14,22 @@ function LogIn() {
   const dispatch = useDispatch();
 
   const submit = async (data) => {
-    console.log(getValues());
-    const userData = await authService.logIn(data);
-    if (userData) {
-      const uData = await authService.getCurrentUser();
-      if (uData) {
-        dispatch(login(uData));
-        navigate("/app");
+    try {
+      const userData = await authService.logIn(data);
+      if (userData) {
+        const uData = await authService.getCurrentUser();
+        if (uData) {
+          dispatch(login(uData));
+          navigate("/app");
+        }
       }
+      toast.success("Logged in!", {
+        position: "top-center",
+      });
+    } catch (error) {
+      toast.error(error.message, {
+        position: "top-center",
+      });
     }
   };
 

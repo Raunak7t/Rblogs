@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import authService from "../appwrite/auth";
 import { useDispatch } from "react-redux";
 import { login } from "../features/loginFeature";
+import { toast } from "react-toastify";
 
 function SignUp() {
   const { register, handleSubmit } = useForm();
@@ -13,13 +14,22 @@ function SignUp() {
   const navigate = useNavigate();
 
   const submit = async (data) => {
-    const userData = await authService.signUp(data);
-    if (userData) {
-      const uData = await authService.getCurrentUser();
-      if (uData) {
-        dispatch(login(uData));
-        navigate("/app");
+    try {
+      const userData = await authService.signUp(data);
+      if (userData) {
+        const uData = await authService.getCurrentUser();
+        if (uData) {
+          dispatch(login(uData));
+          navigate("/app");
+        }
       }
+      toast.success("Signed up!", {
+        position: "top-center",
+      });
+    } catch (error) {
+      toast.error(error.message, {
+        position: "top-center",
+      });
     }
   };
 

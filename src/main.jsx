@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "blog-view/:slug",
+            path: "blog-view/:id",
             element: (
               <AuthLayout auth={true}>
                 <BlogView />
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "edit-blog/:slug",
+            path: "edit-blog/:id",
             element: (
               <AuthLayout auth={true}>
                 <EditBlog />

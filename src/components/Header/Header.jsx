@@ -8,8 +8,6 @@ import Logout from "./Logout";
 function Header() {
   const isLogin = useSelector((state) => state.isLogin);
 
-  console.log(isLogin);
-
   const navLinks = [
     {
       path: "/app",

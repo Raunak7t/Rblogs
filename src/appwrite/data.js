@@ -16,43 +16,40 @@ export class DataService {
 
   async addPost({ slug, title, image, content, userId, time, status }) {
     try {
-      return await databases.createDocument(
+      return await this.databases.createDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        slug,
-        { title, image, content, userId, time, status }
+        slug.slice(0, 15) + ID.unique(),
+        { slug, title, image, content, userId, time, status }
       );
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 
   async updatePost(slug, { title, image, content, time, status }) {
     try {
-      return await databases.updateDocument(
+      return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug,
         { title, image, content, time, status }
       );
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 
   async deletePost(slug) {
     try {
-      await databases.deleteDocument(
+      await this.databases.deleteDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug
       );
       return true;
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 
@@ -64,8 +61,7 @@ export class DataService {
         queries
       );
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 
@@ -77,8 +73,7 @@ export class DataService {
         slug
       );
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 
@@ -90,8 +85,7 @@ export class DataService {
         file
       );
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 
@@ -99,8 +93,7 @@ export class DataService {
     try {
       return this.storage.getFilePreview(conf.appwriteBucketId, fileId).href;
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 
@@ -108,8 +101,7 @@ export class DataService {
     try {
       return await this.storage.updateFile(conf.appwriteBucketId, fileId);
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 
@@ -117,8 +109,7 @@ export class DataService {
     try {
       return await this.storage.deleteFile(conf.appwriteBucketId, fileId);
     } catch (error) {
-      console.log(error);
-      return false;
+      throw error;
     }
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../features/loginFeature";
 import authService from "../../appwrite/auth";
+import { toast } from "react-toastify";
 
 function Logout() {
   const dispatch = useDispatch();
@@ -11,9 +12,14 @@ function Logout() {
       .logOut()
       .then(() => {
         dispatch(logout());
+        toast("Logged out!", {
+          position: "top-center",
+        });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        toast.error(error.message, {
+          position: "top-center",
+        });
       });
   };
 
