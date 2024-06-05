@@ -14,13 +14,22 @@ export class DataService {
     this.storage = new Storage(this.client);
   }
 
-  async addPost({ slug, title, image, content, userId, time, status }) {
+  async addPost({
+    slug,
+    title,
+    image,
+    content,
+    userId,
+    time,
+    status,
+    userName,
+  }) {
     try {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug.slice(0, 15) + ID.unique(),
-        { slug, title, image, content, userId, time, status }
+        { slug, title, image, content, userId, time, status, userName }
       );
     } catch (error) {
       throw error;
