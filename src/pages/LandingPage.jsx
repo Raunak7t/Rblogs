@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AddBlogForm,
+  Button,
   Container,
   Header,
   Input,
@@ -8,20 +9,25 @@ import {
   PostCard,
   Select,
 } from "../components/";
+import { RiLoader4Fill } from "react-icons/ri";
 
 function LandingPage() {
+  const [btnLoad, setBtnLoad] = useState(false);
   return (
     <div className="">
       <Header />
       <div className="h-96"></div>
       <Container>
-        <AddBlogForm />
         <Logo />
         LandingPage
-        <PostCard />
-        ;lksdfkj
-        <Input label="Raunak i" type="password" />
-        <Select label="Option:" options={[3, 5, 4]} />
+        <Button
+          onClick={() => {
+            setBtnLoad(!btnLoad);
+          }}
+          isLoading={btnLoad}
+        >
+          Click
+        </Button>
       </Container>
       <div className="h-screen"></div>
     </div>

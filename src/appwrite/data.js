@@ -36,13 +36,13 @@ export class DataService {
     }
   }
 
-  async updatePost(slug, { title, image, content, time, status }) {
+  async updatePost(id, { title, slug, image, content, time, status }) {
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        slug,
-        { title, image, content, time, status }
+        id,
+        { title, slug, image, content, time, status }
       );
     } catch (error) {
       throw error;
@@ -74,12 +74,12 @@ export class DataService {
     }
   }
 
-  async getPost(slug) {
+  async getPost(id) {
     try {
-      return await this.databases.listDocuments(
+      return await this.databases.getDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        slug
+        id
       );
     } catch (error) {
       throw error;

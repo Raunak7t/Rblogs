@@ -17,8 +17,9 @@ function PostCard({ post }) {
 
   return (
     <Link
-      to={`/app/blog-view/${$id}`}
-      className=" bg-slate-800 hover:bg-slate-700 w-96 rounded-lg overflow-hidden flex "
+      // to={`/app/blog-view/${$id}`}
+      to={`/app/edit-blog/${$id}`}
+      className=" bg-slate-800 hover:bg-slate-700 w-96 min-h-32 rounded-lg overflow-hidden flex "
       ref={cardRef}
     >
       <div className=" w-1/2" style={{ height: cardHeight }}>

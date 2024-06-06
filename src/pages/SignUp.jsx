@@ -13,8 +13,11 @@ function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [btnLoad, setBtnLoad] = useState(false);
+
   const submit = async (data) => {
     try {
+      setBtnLoad(true);
       const userData = await authService.signUp(data);
       if (userData) {
         const uData = await authService.getCurrentUser();
@@ -31,6 +34,7 @@ function SignUp() {
         position: "top-center",
       });
     }
+    setBtnLoad(false);
   };
 
   return (
@@ -74,7 +78,7 @@ function SignUp() {
                 Log-in
               </Link>
             </p>
-            <Button type="submit" className="w-full my-3">
+            <Button type="submit" className="w-full my-3" isLoading={btnLoad}>
               Sign-up
             </Button>
           </form>

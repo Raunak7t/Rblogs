@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Input, StyledText, Title } from "../components";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -8,13 +8,16 @@ import { login } from "../features/loginFeature";
 import { toast } from "react-toastify";
 
 function LogIn() {
-  const { register, getValues, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [btnLoad, setBtnLoad] = useState(false);
+
   const submit = async (data) => {
     try {
+      setBtnLoad(true);
       const userData = await authService.logIn(data);
       if (userData) {
         const uData = await authService.getCurrentUser();
@@ -31,6 +34,7 @@ function LogIn() {
         position: "top-center",
       });
     }
+    setBtnLoad(false);
   };
 
   return (
@@ -69,7 +73,7 @@ function LogIn() {
                 Sign-up
               </Link>
             </p>
-            <Button className="w-full my-3" type="submit">
+            <Button className="w-full my-3" type="submit" isLoading={btnLoad}>
               Log-in
             </Button>
           </form>

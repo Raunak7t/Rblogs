@@ -16,7 +16,7 @@ function AddBlogForm({ blog }) {
       defaultValues: {
         title: blog?.title || "",
         slug: blog?.slug || "",
-        status: "Active",
+        status: blog?.status || "Active",
         content: blog?.content || "",
       },
     });
@@ -24,8 +24,14 @@ function AddBlogForm({ blog }) {
   const userData = useSelector((state) => state.userData);
   const navigate = useNavigate();
 
+  const [btnLoad, setBtnLoad] = useState(false);
+
   const [imgFile, setImgFile] = useState(null);
   const [previewImg, setPreviewImg] = useState(null);
+
+  useEffect(() => {
+    if (blog && blog.image) setPreviewImg(dataService.getPrev(blog.image));
+  }, []);
 
   useEffect(() => {
     const subs = watch((values, { name }) => {
@@ -64,19 +70,33 @@ function AddBlogForm({ blog }) {
   };
 
   const submit = async (data) => {
+    setBtnLoad(true);
+    let finalData = null;
+    const currentTime = new Date().toISOString();
     try {
-      const image = await dataService.uploadImage(imgFile);
-      const currentTime = new Date().toISOString();
-      const uploadData = {
-        ...data,
-        image: image.$id,
-        time: currentTime,
-        userId: userData.$id,
-        userName: userData.name,
-      };
-      const finalData = await dataService.addPost(uploadData);
+      if (blog) {
+        const image = imgFile ? await dataService.uploadImage(imgFile) : null;
+        if (image) {
+          dataService.deleteImage(blog.image);
+        }
+        finalData = await dataService.updatePost(blog.$id, {
+          ...data,
+          image: image ? image.$id : blog.image,
+          time: currentTime,
+        });
+      } else {
+        const image = await dataService.uploadImage(imgFile);
+        const uploadData = {
+          ...data,
+          image: image.$id,
+          time: currentTime,
+          userId: userData.$id,
+          userName: userData.name,
+        };
+        finalData = await dataService.addPost(uploadData);
+      }
       if (finalData) {
-        toast.success("Blog uploaded!", {
+        toast.success(blog ? "Blog updated!" : "Blog uploaded!", {
           position: "top-center",
         });
         navigate("/app/blog-view/" + finalData.$id);
@@ -86,6 +106,7 @@ function AddBlogForm({ blog }) {
         position: "top-center",
       });
     }
+    setBtnLoad(false);
   };
 
   return (
@@ -117,7 +138,7 @@ function AddBlogForm({ blog }) {
           label="Image: "
           type="file"
           className="mb-2"
-          required
+          required={!blog}
           {...register("image")}
           accept="image/png, image/jpg, image/jpeg"
         />
@@ -136,8 +157,8 @@ function AddBlogForm({ blog }) {
           control={control}
           defaultValue={getValues("content")}
         />
-        <Button type="submit" className="w-full mt-5">
-          POST
+        <Button type="submit" className="w-full mt-5" isLoading={btnLoad}>
+          {blog ? "UPDATE" : "POST"}
         </Button>
       </div>
     </form>
