@@ -43,7 +43,7 @@ function BlogView() {
   return (
     <>
       {blog ? (
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto pb-14">
           <h1 className="text-center text-3xl font-bold pt-4">{blog.title}</h1>
           <div className="extra-info flex justify-between items-center my-4 mx-14">
             <p>{format(new Date(blog.time), "hh:mm a - d MMM, yyyy")}</p>

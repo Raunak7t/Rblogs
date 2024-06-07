@@ -20,7 +20,7 @@ function EditBlog() {
   }, []);
 
   return (
-    <div>
+    <div className="pb-14">
       <Title>
         Update and{" "}
         <StyledText className="text-5xl tracking-wide ">Enhance</StyledText>{" "}

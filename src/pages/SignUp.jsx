@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Input, StyledText, Title } from "../components";
-import { Link, useNavigate, useNavigation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import authService from "../appwrite/auth";
 import { useDispatch } from "react-redux";
@@ -38,7 +38,7 @@ function SignUp() {
   };
 
   return (
-    <div>
+    <div className="pb-14">
       <Title>
         Sign up to{" "}
         <StyledText className="text-5xl tracking-wide ">Explore</StyledText>{" "}

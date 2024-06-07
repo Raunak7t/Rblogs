@@ -7,6 +7,7 @@ import Logout from "./Logout";
 
 function Header() {
   const isLogin = useSelector((state) => state.isLogin);
+  const userData = useSelector((state) => state.userData);
 
   const navLinks = [
     {
@@ -41,9 +42,12 @@ function Header() {
   return (
     <header className=" bg-slate-800/50 fixed top-0 left-0 right-0 backdrop-blur z-50">
       <Container className="py-2 flex items-center justify-between gap-8">
-        <Link to="/">
-          <Logo />
-        </Link>
+        <div className="left flex items-center gap-24">
+          <Link to="/">
+            <Logo />
+          </Link>
+          <p className="text-lg font-semibold">Hey, {userData?.name}!</p>
+        </div>
         <nav>
           <ul className=" flex items-center gap-4">
             {navLinks.map(

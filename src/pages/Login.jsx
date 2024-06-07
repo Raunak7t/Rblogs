@@ -38,7 +38,7 @@ function LogIn() {
   };
 
   return (
-    <div>
+    <div className="pb-14">
       <Title>
         Welcome!{" "}
         <StyledText className="text-5xl tracking-wide ">Log in</StyledText> to

@@ -19,7 +19,7 @@ function AllBlogs() {
   }, []);
 
   return (
-    <div>
+    <div className="pb-14">
       <Title>
         Explore all{" "}
         <StyledText className="text-5xl tracking-wide ">Blogs</StyledText> on

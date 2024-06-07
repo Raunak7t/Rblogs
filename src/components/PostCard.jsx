@@ -22,7 +22,7 @@ function PostCard({ post }) {
       ref={cardRef}
     >
       {status === "Inactive" && (
-        <div className="absolute bg-slate-900/50 w-full h-full z-10 flex justify-center items-center font-bold text-4xl text-white/70 backdrop-blur-sm">
+        <div className="absolute bg-slate-950/50 w-full h-full z-10 flex justify-center items-center font-bold text-4xl text-white/70 backdrop-blur-sm">
           IN-ACTIVE
         </div>
       )}
@@ -38,7 +38,7 @@ function PostCard({ post }) {
           <FaUserCircle className=" text-xl" /> <span>{userName}</span>
         </div>
         <small className=" self-end -mt-2 opacity-80">{date}</small>
-        <h1 className="text-xl font-semibold px-2">{title}</h1>
+        <h1 className="text-xl font-semibold px-2 pb-3">{title}</h1>
       </div>
     </Link>
   );

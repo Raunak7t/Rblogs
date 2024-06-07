@@ -111,7 +111,7 @@ function AddBlogForm({ blog }) {
 
   return (
     <form className=" flex gap-8 " onSubmit={handleSubmit(submit)}>
-      <div className="left w-2/5">
+      <div className="left w-1/3">
         <Input
           label="Title: "
           className="mb-2"
@@ -150,7 +150,7 @@ function AddBlogForm({ blog }) {
           />
         </div>
       </div>
-      <div className="right w-3/5">
+      <div className="right w-2/3">
         <RTE
           label="Content: "
           name="content"
