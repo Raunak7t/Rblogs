@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Loading, PostCard, StyledText, Title } from "../components";
 import dataService from "../appwrite/data";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { Query } from "appwrite";
 
-function AllBlogs() {
+function MyBlogs() {
   const [allPosts, setAllPosts] = useState(null);
+
+  const userData = useSelector((state) => state.userData);
 
   useEffect(() => {
     try {
-      dataService.getPosts().then((data) => {
-        setAllPosts(data.documents);
-      });
+      dataService
+        .getPosts([Query.equal("userId", userData.$id)])
+        .then((data) => {
+          setAllPosts(data.documents);
+        });
     } catch (error) {
       toast.error(error.message, {
         position: "top-center",
@@ -21,9 +27,9 @@ function AllBlogs() {
   return (
     <div>
       <Title>
-        Explore all{" "}
-        <StyledText className="text-5xl tracking-wide ">Blogs</StyledText> on
-        Rblogs
+        Hmmm...{" "}
+        <StyledText className="text-5xl tracking-wide ">These</StyledText> are
+        mine.
       </Title>
       {allPosts ? (
         <div className="all-blogs flex flex-wrap justify-center gap-8 items-center mt-10">
@@ -38,4 +44,4 @@ function AllBlogs() {
   );
 }
 
-export default AllBlogs;
+export default MyBlogs;

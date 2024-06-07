@@ -14,6 +14,7 @@ import {
   LandingPage,
   Layout,
   LogIn,
+  MyBlogs,
   SignUp,
 } from "./pages/";
 import AuthLayout from "./components/AuthLayout.jsx";
@@ -41,6 +42,14 @@ const router = createBrowserRouter([
             element: (
               <AuthLayout auth={true}>
                 <AddBlog />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "my-blogs",
+            element: (
+              <AuthLayout auth={true}>
+                <MyBlogs />
               </AuthLayout>
             ),
           },

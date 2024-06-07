@@ -5,7 +5,7 @@ import dataService from "../appwrite/data";
 import { format } from "date-fns";
 
 function PostCard({ post }) {
-  const { $id, image, title, userName, time } = post;
+  const { $id, image, title, userName, time, status } = post;
 
   const date = format(new Date(time), "d MMM");
 
@@ -18,9 +18,14 @@ function PostCard({ post }) {
   return (
     <Link
       to={`/app/blog-view/${$id}`}
-      className=" bg-slate-800 hover:bg-slate-700 w-96 min-h-32 rounded-lg overflow-hidden flex "
+      className=" bg-slate-800 hover:bg-slate-700 w-96 min-h-32 rounded-lg overflow-hidden flex relative"
       ref={cardRef}
     >
+      {status === "Inactive" && (
+        <div className="absolute bg-slate-900/50 w-full h-full z-10 flex justify-center items-center font-bold text-4xl text-white/70 backdrop-blur-sm">
+          IN-ACTIVE
+        </div>
+      )}
       <div className=" w-1/2" style={{ height: cardHeight }}>
         <img
           src={dataService.getPrev(image)}

@@ -10,6 +10,12 @@ function Header() {
 
   const navLinks = [
     {
+      path: "/app/my-blogs",
+      name: "My Blogs",
+      active: isLogin,
+      exact: true,
+    },
+    {
       path: "/app",
       name: "All Blogs",
       active: isLogin,
