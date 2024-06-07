@@ -17,8 +17,7 @@ function PostCard({ post }) {
 
   return (
     <Link
-      // to={`/app/blog-view/${$id}`}
-      to={`/app/edit-blog/${$id}`}
+      to={`/app/blog-view/${$id}`}
       className=" bg-slate-800 hover:bg-slate-700 w-96 min-h-32 rounded-lg overflow-hidden flex "
       ref={cardRef}
     >

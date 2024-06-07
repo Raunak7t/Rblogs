@@ -11,7 +11,11 @@ function AllBlogs() {
       dataService.getPosts().then((data) => {
         setAllPosts(data.documents);
       });
-    } catch (error) {}
+    } catch (error) {
+      toast.error(error.message, {
+        position: "top-center",
+      });
+    }
   }, []);
 
   return (
