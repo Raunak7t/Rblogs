@@ -46,7 +46,9 @@ function Header() {
           <Link to="/">
             <Logo />
           </Link>
-          <p className="text-lg font-semibold">Hey, {userData?.name}!</p>
+          {isLogin && (
+            <p className="text-lg font-semibold">Hey, {userData?.name}!</p>
+          )}
         </div>
         <nav>
           <ul className=" flex items-center gap-4">
