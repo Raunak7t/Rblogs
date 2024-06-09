@@ -49,7 +49,7 @@ function SignUp() {
       <div className=" flex justify-center mt-8">
         <div className=" p-px rounded-lg bg-gradient-to-br from-purple-400 via-slate-700 to-purple-400">
           <form
-            className=" rounded-lg bg-slate-900/90 px-6 py-4 w-96"
+            className=" rounded-lg bg-slate-900/90 px-6 py-4 w-96 sm:w-80"
             onSubmit={handleSubmit(submit)}
           >
             <Input

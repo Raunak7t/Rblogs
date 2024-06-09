@@ -14,12 +14,12 @@ import { IoMailOutline } from "react-icons/io5";
 function Footer() {
   return (
     <div className="bg-slate-800/50 py-1">
-      <Container className="flex justify-around items-center">
+      <Container className="flex justify-around items-center flex-wrap gap-x-14">
         <div className="flex items-center gap-2">
           <FaRegCopyright className="text-xl text-purple-300" />
           <StyledText className="font-semibold text-xl">Raunak</StyledText>
         </div>
-        <div className="links text-xl flex gap-6">
+        <div className="links text-xl flex gap-6 justify-center py-2 sm:order-1 sm:w-full">
           <a href="mailto:raunaktiwari1207@gmail.com" target="_blank">
             <IoMailOutline />
           </a>

@@ -110,8 +110,11 @@ function AddBlogForm({ blog }) {
   };
 
   return (
-    <form className=" flex gap-8 " onSubmit={handleSubmit(submit)}>
-      <div className="left w-1/3">
+    <form
+      className=" flex gap-8 sm:block sm:mt-2"
+      onSubmit={handleSubmit(submit)}
+    >
+      <div className="left w-1/3 sm:w-full">
         <Input
           label="Title: "
           className="mb-2"
@@ -142,7 +145,7 @@ function AddBlogForm({ blog }) {
           {...register("image")}
           accept="image/png, image/jpg, image/jpeg"
         />
-        <div className="img-prev h-48 mt-1 bg-slate-800 border rounded-md overflow-hidden">
+        <div className="img-prev h-48 mt-1 sm:mb-2 bg-slate-800 border rounded-md overflow-hidden">
           <img
             src={previewImg || img}
             alt=""
@@ -150,7 +153,7 @@ function AddBlogForm({ blog }) {
           />
         </div>
       </div>
-      <div className="right w-2/3">
+      <div className="right w-2/3 sm:w-full">
         <RTE
           label="Content: "
           name="content"

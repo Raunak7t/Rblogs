@@ -45,12 +45,14 @@ function BlogView() {
       {blog ? (
         <div className="max-w-4xl mx-auto pb-14">
           <h1 className="text-center text-3xl font-bold pt-4">{blog.title}</h1>
-          <div className="extra-info flex justify-between items-center my-4 mx-14">
-            <p>{format(new Date(blog.time), "hh:mm a - d MMM, yyyy")}</p>
-            <cite className="text-lg">- By {blog.userName}</cite>
+          <div className="extra-info flex flex-wrap gap-x-10 justify-between items-center my-4 mx-14 sm:mx-8">
+            <p className="mr-auto">
+              {format(new Date(blog.time), "hh:mm a - d MMM, yyyy")}
+            </p>
+            <cite className="text-lg ml-auto">- By {blog.userName}</cite>
           </div>
           <div
-            className="img-div max-w-2xl h-96 mx-auto overflow-hidden rounded-2xl border-l-8 border-r-8 border-purple-500"
+            className="img-div max-w-2xl h-96 sm:h-56 mx-auto overflow-hidden rounded-2xl border-l-8 border-r-8 border-purple-500"
             style={{
               backgroundImage: `linear-gradient(to top left, #02002655, #8324d133 , #02002655), url(${dataService.getPrev(
                 blog.image
@@ -83,8 +85,8 @@ function BlogView() {
               </Button>
             </div>
           )}
-          <div className="prose reset-styles">
-            <div className="content my-6">{parse(blog.content)}</div>
+          <div className="prose-lg reset-styles">
+            <div className="content my-12">{parse(blog.content)}</div>
           </div>
         </div>
       ) : (
