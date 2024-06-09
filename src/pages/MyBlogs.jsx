@@ -28,8 +28,10 @@ function MyBlogs() {
     <div className="pb-14">
       <Title>
         Hmmm...{" "}
-        <StyledText className="text-5xl tracking-wide ">These</StyledText> are
-        mine.
+        <StyledText className="text-5xl tracking-wide sm:text-3xl ">
+          These
+        </StyledText>{" "}
+        are mine.
       </Title>
       {allPosts ? (
         <div className="all-blogs flex flex-wrap justify-center gap-8 items-center mt-10">

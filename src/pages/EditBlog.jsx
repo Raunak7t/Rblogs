@@ -23,7 +23,9 @@ function EditBlog() {
     <div className="pb-14">
       <Title>
         Update and{" "}
-        <StyledText className="text-5xl tracking-wide ">Enhance</StyledText>{" "}
+        <StyledText className="text-5xl tracking-wide sm:text-3xl">
+          Enhance
+        </StyledText>{" "}
         your blog post
       </Title>
       {post ? <AddBlogForm blog={post} /> : <Loading />}

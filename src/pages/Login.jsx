@@ -41,8 +41,10 @@ function LogIn() {
     <div className="pb-14">
       <Title>
         Welcome!{" "}
-        <StyledText className="text-5xl tracking-wide ">Log in</StyledText> to
-        continue
+        <StyledText className="text-5xl tracking-wide sm:text-3xl ">
+          Log in
+        </StyledText>{" "}
+        to continue
       </Title>
       <div className=" flex justify-center mt-8">
         <div className=" p-px rounded-lg bg-gradient-to-br from-purple-400 via-slate-700 to-purple-400">

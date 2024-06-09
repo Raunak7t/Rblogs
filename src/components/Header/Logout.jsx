@@ -4,7 +4,7 @@ import { logout } from "../../features/loginFeature";
 import authService from "../../appwrite/auth";
 import { toast } from "react-toastify";
 
-function Logout() {
+function Logout({ setNavOpen }) {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -15,6 +15,7 @@ function Logout() {
         toast("Logged out!", {
           position: "top-center",
         });
+        setNavOpen(false);
       })
       .catch((error) => {
         toast.error(error.message, {

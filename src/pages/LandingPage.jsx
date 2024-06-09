@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledText } from "../components/";
-import img2 from "../assets/bg.gif";
+import img from "../assets/bg.gif";
 import { Link } from "react-router-dom";
 import { FaRightLong } from "react-icons/fa6";
 
@@ -8,19 +8,20 @@ function LandingPage() {
   return (
     <div
       style={{
-        backgroundImage: `linear-gradient(45deg, #110022cc, #0005), url(${img2})`,
+        backgroundImage: `linear-gradient(45deg, #110022cc, #0005), url(${img})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="h-screen flex items-center px-40 justify-center gap-10 backdrop-blur-xl flex-wrap">
+      <div className="h-screen flex sm:flex-col items-center px-40 sm:px-10 justify-center gap-10 sm:gap-20  backdrop-blur-xl flex-wrap">
         <div className="left">
-          <h1 className="text-9xl">
+          <h1 className="text-9xl sm:text-7xl">
             <StyledText>R blogs</StyledText>
           </h1>
-          <h3 className="text-4xl font-bold mt-12">
+          <h3 className="text-4xl sm:text-3xl font-bold mt-12 sm:mt-5">
             Your daily dose of{" "}
-            <StyledText className="text-5xl">Insightful</StyledText> arcticles.
+            <StyledText className="text-5xl sm:text-4xl">Insightful</StyledText>{" "}
+            arcticles.
           </h3>
         </div>
         <div className="right">

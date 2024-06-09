@@ -41,7 +41,9 @@ function SignUp() {
     <div className="pb-14">
       <Title>
         Sign up to{" "}
-        <StyledText className="text-5xl tracking-wide ">Explore</StyledText>{" "}
+        <StyledText className="text-5xl tracking-wide sm:text-3xl">
+          Explore
+        </StyledText>{" "}
         more
       </Title>
       <div className=" flex justify-center mt-8">

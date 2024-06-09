@@ -6,7 +6,9 @@ function AddBlog() {
     <div className="pb-14">
       <Title>
         Add an{" "}
-        <StyledText className="text-5xl tracking-wide ">Exciting</StyledText>{" "}
+        <StyledText className="text-5xl tracking-wide sm:text-3xl">
+          Exciting
+        </StyledText>{" "}
         blog post
       </Title>
       <AddBlogForm />

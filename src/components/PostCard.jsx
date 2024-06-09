@@ -18,7 +18,7 @@ function PostCard({ post }) {
   return (
     <Link
       to={`/app/blog-view/${$id}`}
-      className=" bg-slate-800 hover:bg-slate-700 w-96 min-h-32 rounded-lg overflow-hidden flex relative"
+      className=" bg-slate-800 hover:bg-slate-700 w-96 sm:w-80 min-h-32 sm:min-h-24 rounded-lg overflow-hidden flex relative"
       ref={cardRef}
     >
       {status === "Inactive" && (
@@ -33,12 +33,12 @@ function PostCard({ post }) {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="w-3/5 p-3 flex flex-col gap-2">
+      <div className="w-3/5 p-3 sm:p-2 flex flex-col gap-2">
         <div className="flex items-center gap-2">
           <FaUserCircle className=" text-xl" /> <span>{userName}</span>
         </div>
         <small className=" self-end -mt-2 opacity-80">{date}</small>
-        <h1 className="text-xl font-semibold px-2 pb-3">{title}</h1>
+        <h1 className="text-lg font-semibold px-2 pb-3 sm:pb-1">{title}</h1>
       </div>
     </Link>
   );
