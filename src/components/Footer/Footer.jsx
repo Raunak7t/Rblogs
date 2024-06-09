@@ -14,12 +14,12 @@ import { IoMailOutline } from "react-icons/io5";
 function Footer() {
   return (
     <div className="bg-slate-800/50 py-1">
-      <Container className="flex justify-around items-center flex-wrap gap-x-14">
+      <Container className="flex justify-around items-center">
         <div className="flex items-center gap-2">
           <FaRegCopyright className="text-xl text-purple-300" />
           <StyledText className="font-semibold text-xl">Raunak</StyledText>
         </div>
-        <div className="links text-xl flex gap-6 justify-center py-2 sm:order-1 sm:w-full">
+        <div className="links text-xl flex gap-6 justify-center">
           <a href="mailto:raunaktiwari1207@gmail.com" target="_blank">
             <IoMailOutline />
           </a>
@@ -33,7 +33,7 @@ function Footer() {
             <FaInstagram />
           </a>
         </div>
-        <div className="logo">
+        <div className="logo sm:hidden">
           <StyledText className="font-semibold text-2xl">R blogs</StyledText>
         </div>
       </Container>

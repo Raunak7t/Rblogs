@@ -13,24 +13,28 @@ function LandingPage() {
         backgroundPosition: "center",
       }}
     >
-      <div className="h-screen flex sm:flex-col items-center px-40 sm:px-10 justify-center gap-10 sm:gap-20  backdrop-blur-xl flex-wrap">
-        <div className="left">
-          <h1 className="text-9xl sm:text-7xl">
-            <StyledText>R blogs</StyledText>
-          </h1>
-          <h3 className="text-4xl sm:text-3xl font-bold mt-12 sm:mt-5">
-            Your daily dose of{" "}
-            <StyledText className="text-5xl sm:text-4xl">Insightful</StyledText>{" "}
-            arcticles.
-          </h3>
-        </div>
-        <div className="right">
-          <Link
-            to="/app"
-            className="text-2xl font-bold bg-slate-800/50 py-3 px-12 rounded-2xl border transition-all duration-500 hover:bg-purple-400/40"
-          >
-            Get Started <FaRightLong className="inline text-3xl" />
-          </Link>
+      <div className="h-screen flex items-center px-40 sm:px-10 justify-center  backdrop-blur-xl ">
+        <div className="flex sm:flex-col items-center justify-center gap-x-10 gap-y-20 sm:gap-20 flex-wrap">
+          <div className="left">
+            <h1 className="text-9xl sm:text-7xl">
+              <StyledText>R blogs</StyledText>
+            </h1>
+            <h3 className="text-4xl sm:text-3xl font-bold mt-12 sm:mt-5">
+              Your daily dose of{" "}
+              <StyledText className="text-5xl sm:text-4xl">
+                Insightful
+              </StyledText>{" "}
+              arcticles.
+            </h3>
+          </div>
+          <div className="right">
+            <Link
+              to="/app"
+              className="text-2xl font-bold bg-slate-800/50 py-3 px-12 rounded-2xl border transition-all duration-500 hover:bg-purple-400/40"
+            >
+              Get Started <FaRightLong className="inline text-3xl" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

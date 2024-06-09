@@ -85,7 +85,7 @@ function BlogView() {
               </Button>
             </div>
           )}
-          <div className="prose-lg reset-styles">
+          <div className="prose-lg reset-styles overflow-hidden">
             <div className="content my-12">{parse(blog.content)}</div>
           </div>
         </div>
