@@ -9,11 +9,15 @@ const loginSlice = createSlice({
       state.userData = action.payload;
     },
     logout: (state) => {
+      state.isGuest = false;
       state.isLogin = false;
       state.userData = null;
+    },
+    guestLogin: (state) => {
+      state.isGuest = true;
     },
   },
 });
 
 export default loginSlice.reducer;
-export const { login, logout } = loginSlice.actions;
+export const { login, logout, guestLogin } = loginSlice.actions;

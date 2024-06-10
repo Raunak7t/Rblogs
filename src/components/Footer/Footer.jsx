@@ -1,13 +1,7 @@
 import React from "react";
 import StyledText from "../StyledText";
-import {
-  FaInstagram,
-  FaLinkedin,
-  FaLinkedinIn,
-  FaRegCopyright,
-} from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaRegCopyright } from "react-icons/fa";
 import Container from "../Container";
-import { CiLinkedin } from "react-icons/ci";
 import { FiGithub } from "react-icons/fi";
 import { IoMailOutline } from "react-icons/io5";
 

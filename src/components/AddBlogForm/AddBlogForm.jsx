@@ -22,6 +22,7 @@ function AddBlogForm({ blog }) {
     });
 
   const userData = useSelector((state) => state.userData);
+  const isGuest = useSelector((state) => state.isGuest);
   const navigate = useNavigate();
 
   const [btnLoad, setBtnLoad] = useState(false);
@@ -70,6 +71,13 @@ function AddBlogForm({ blog }) {
   };
 
   const submit = async (data) => {
+    if (isGuest === true) {
+      toast.error("Please log-in or register to perform this action!", {
+        position: "top-center",
+      });
+      return;
+    }
+
     setBtnLoad(true);
     let finalData = null;
     const currentTime = new Date().toISOString();

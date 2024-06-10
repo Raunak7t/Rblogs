@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import authService from "../appwrite/auth";
 import { useDispatch } from "react-redux";
-import { login } from "../features/loginFeature";
+import { guestLogin, login } from "../features/loginFeature";
 import { toast } from "react-toastify";
 
 function LogIn() {
@@ -23,6 +23,7 @@ function LogIn() {
         const uData = await authService.getCurrentUser();
         if (uData) {
           dispatch(login(uData));
+          if (data?.guest == true) dispatch(guestLogin());
           navigate("/app");
         }
       }
@@ -46,7 +47,7 @@ function LogIn() {
         </StyledText>{" "}
         to continue
       </Title>
-      <div className=" flex justify-center mt-8">
+      <div className=" flex flex-col items-center gap-6 justify-center mt-8">
         <div className=" p-px rounded-lg bg-gradient-to-br from-purple-400 via-slate-700 to-purple-400">
           <form
             className=" rounded-lg bg-slate-900/90 px-6 py-4 w-96 sm:w-80"
@@ -79,6 +80,21 @@ function LogIn() {
               Log-in
             </Button>
           </form>
+        </div>
+        <div>
+          <Button
+            className=" w-96 sm:w-80 opacity-75 from-violet-600/60 to-violet-300/60"
+            onClick={() => {
+              submit({
+                email: "guest@gmail.com",
+                password: "guest123",
+                guest: true,
+              });
+            }}
+            isLoading={btnLoad}
+          >
+            Continue without log-in
+          </Button>
         </div>
       </div>
     </div>
